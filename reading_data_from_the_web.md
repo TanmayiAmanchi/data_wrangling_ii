@@ -115,3 +115,33 @@ nyc_cost_df =
   html_table(header=TRUE) |>
   first()
 ```
+
+## CSS Selectors
+
+``` r
+swm_url = "https://www.imdb.com/list/ls070150896/"
+swm_html = read_html(swm_url)
+```
+
+``` r
+title_vec = 
+  swm_html |>
+  html_elements(".ipc-title-link-wrapper .ipc-title__text") |>
+  html_text()
+
+metascore_vec = 
+  swm_html |>
+  html_elements(".metacritic-score-box") |>
+  html_text()
+
+runtime_vec = 
+  swm_html |>
+  html_elements(".dli-title-metadata-item:nth-child(2)") |>
+  html_text()
+
+swm_df = 
+  tibble(
+    title = title_vec,
+    score = metascore_vec,
+    runtime = runtime_vec)
+```

@@ -37,3 +37,12 @@ table_marj =
 table_marj
 ```
 
+## Learning Assessment
+Create data frame that contains cost of living table for New York
+```{r}
+nyc_cost_df =
+  read_html ("https://www.bestplaces.net/cost_of_living/city/new_york/new_york") |>
+  html_table(header=TRUE) |>
+  first()
+```
+

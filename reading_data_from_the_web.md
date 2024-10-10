@@ -104,3 +104,14 @@ table_marj
     ## #   `18-25(2013-2014)` <chr>, `18-25(2014-2015)` <chr>, `18-25(P Value)` <chr>,
     ## #   `26+(2013-2014)` <chr>, `26+(2014-2015)` <chr>, `26+(P Value)` <chr>,
     ## #   `18+(2013-2014)` <chr>, `18+(2014-2015)` <chr>, `18+(P Value)` <chr>
+
+## Learning Assessment
+
+Create data frame that contains cost of living table for New York
+
+``` r
+nyc_cost_df =
+  read_html ("https://www.bestplaces.net/cost_of_living/city/new_york/new_york") |>
+  html_table(header=TRUE) |>
+  first()
+```
